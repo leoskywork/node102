@@ -1,7 +1,6 @@
 //a sample without express, ref https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/
 
 const AppConst = require('./common/app-const');
-//const { default: AppConst } = require('./common/app-const');
 const config = require('./common/config');
 
 const http = require('http');
@@ -25,7 +24,7 @@ const server = http.createServer((request, response) => {
         console.error(err);
     });
 
-    //-------------------------------------------------------------------
+    //-------------------------------------------------------------------routing
 
     if (method === "GET" || method === "DELETE") {
 

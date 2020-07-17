@@ -4,7 +4,7 @@ adv node backend app, for basic see project node101
 
 ```sh
 # run in dev mode(live update)
-npm run dev
+npm run vanilla
 
 
 
@@ -24,11 +24,11 @@ npm run dev
 
 ## todo list
 
-[ ] vanilla node
-    [ ] read config file
-    [ ] handle CRUD - only for dev machine, no need to deploy
-[ ] low priority
-    [ ] login/logout
-    [ ] register new user
+[ ] vanilla node  
+    [ ] read config file  
+    [ ] handle CRUD - only for dev machine, no need to deploy  
+[ ] low priority  
+    [ ] login/logout  
+    [ ] register new user  
 
 ## more
