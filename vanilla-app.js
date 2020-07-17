@@ -2,6 +2,7 @@
 
 const AppConst = require('./common/app-const');
 //const { default: AppConst } = require('./common/app-const');
+const config = require('./common/config');
 
 const http = require('http');
 
@@ -11,7 +12,29 @@ const server = http.createServer((request, response) => {
     const { method, url, headers } = request;
     console.log('handle request', method, url);
 
+    //If you don't have a listener for that event, the error will be thrown, which could crash your Node.js program.
+    //You should therefore add an 'error' listener on your request streams, even if you just log it and continue on your way.
+    //(Though it's probably best to send some kind of HTTP error response. More on that later.)
+    request.on('error', (err) => {
+        console.error(err);
+        response.statusCode = 400;
+        response.end('server send back 400 error');
+    });
+
+    response.on('error', (err) => {
+        console.error(err);
+    });
+
+    //-------------------------------------------------------------------
+
     if (method === "GET" || method === "DELETE") {
+
+        if (method === "GET") {
+            if (url === '/introspection/config') {
+                return response.end(config.readIntrospectionSync());
+            }
+        }
+
         response.end(`server received request ${method}, ${url}`);
 
     } else if (method === "POST" || method === "PUT") {
@@ -34,22 +57,8 @@ const server = http.createServer((request, response) => {
         });
     } else {
         response.statusCode = 404;
-        response.end('node server send back 404');
+        response.end(`unsupported http method: ${method}`);
     }
-
-    //If you don't have a listener for that event, the error will be thrown, which could crash your Node.js program.
-    //You should therefore add an 'error' listener on your request streams, even if you just log it and continue on your way.
-    //(Though it's probably best to send some kind of HTTP error response. More on that later.)
-    request.on('error', (err) => {
-
-        console.error(err);
-        response.statusCode = 400;
-        response.end('server send back 400 error');
-    });
-
-    response.on('error', (err) => {
-        console.error(err);
-    });
 
 });
 

@@ -9,7 +9,7 @@ class AppConst {
     }
 
     static get configFile() {
-        return 'lsktxt-introspection-config.txt';
+        return '/data/introspection-config.json';
     }
 }
 
