@@ -7,10 +7,12 @@ adv node backend app, for basic see project node101
 npm run dev
 
 
+
 ```
 
 ## api list
 
+- vanilla node sample
 - restful api for introspection
 
 ## tech list
@@ -22,8 +24,11 @@ npm run dev
 
 ## todo list
 
-[ ] login/logout
+[ ] vanilla node
+    [ ] read config file
+    [ ] handle CRUD - only for dev machine, no need to deploy
 [ ] low priority
+    [ ] login/logout
     [ ] register new user
 
 ## more
