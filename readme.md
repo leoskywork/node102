@@ -24,11 +24,15 @@ npm run vanilla
 
 ## todo list
 
-[ ] vanilla node  
-    [ ] read config file  
-    [ ] handle CRUD - only for dev machine, no need to deploy  
-[ ] low priority  
-    [ ] login/logout  
-    [ ] register new user  
+- [ ] vanilla node
+  - [x] read config file
+  - [ ] handle CRUD - only for dev machine, no need to deploy
+    - [x] get
+    - [ ] post
+    - [ ] put
+    - [ ] delete
+- [ ] low priority
+  - [ ] login/logout
+  - [ ] register new user
 
 ## more
